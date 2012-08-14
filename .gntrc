@@ -1,0 +1,16 @@
+[general]
+shadow = 0
+# There is experimental mouse support
+mouse = 0
+# To use some custom window-manager
+wm = /usr/lib/gnt/irssi.so
+
+[GntWM::binding]
+c-n = window-next
+a-n =
+c-p = window-prev
+a-p =
+c-c = window-close
+a-c =
+c-q = wm-quit
+a-q =
