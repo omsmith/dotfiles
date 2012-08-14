@@ -1,0 +1,6 @@
+[ui]
+username = Owen Smith <omsmith@uwaterloo.ca>
+ssh = ssh -C
+
+[extensions]
+color =
