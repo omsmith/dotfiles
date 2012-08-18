@@ -71,6 +71,6 @@ if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
 
-export PATH=!/bin:~/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
+export PATH=~/bin:~/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
 
 EDITOR=vim
