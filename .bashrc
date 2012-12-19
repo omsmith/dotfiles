@@ -113,6 +113,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# include PS1
+if [ -f ~/.bash_ps1 ]; then
+	. ~/.bash_ps1
+fi
+
 # some environment variables
 export PATH=~/bin:~/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
 EDITOR=vim
