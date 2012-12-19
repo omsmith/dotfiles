@@ -116,3 +116,6 @@ fi
 # some environment variables
 export PATH=~/bin:~/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
 EDITOR=vim
+
+# aliases
+alias dotgit="git --work-tree=$HOME --git-dir=$HOME/dev/dotfiles.git"
