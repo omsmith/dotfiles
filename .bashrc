@@ -118,6 +118,18 @@ if [ -f ~/.bash_ps1 ]; then
 	. ~/.bash_ps1
 fi
 
+# l2man
+function command_not_found_handle {
+    if [ `expr length $1` -gt "2" ]; then
+        if [ "${1:0:2}" = "l2" ]; then
+            man -- "${1:2}"
+            return 0
+        fi
+    fi
+
+    return 127
+}
+
 # some environment variables
 export PATH=~/bin:~/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
 EDITOR=vim
