@@ -246,6 +246,7 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doShift "8:vid"
 	, className =? "mplayer2"		--> doShift "8:vid"
 	, className =? "vmware-view"	--> doShift "7"
+	, className =? "KSP.x86"		--> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
