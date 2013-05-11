@@ -1,8 +1,5 @@
 if [[ `hostname -f` = taurine.csclub.uwaterloo.ca ]]; then
-	screen -ls | grep irssi 1&2> /dev/null
-	if [[ $? -ne 0 ]] ; then
-		screen -dmS irssi -t irssi
-	fi
+	screen -ls | grep irssi > /dev/null 2>&1 || screen -UdmS irssi irssi
 	screen -Dr irssi
 else
 	ssh taurine.csclub.uwaterloo.ca -Ct bin/irc
