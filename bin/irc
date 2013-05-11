@@ -1,0 +1,10 @@
+if [[ `hostname -f` = taurine.csclub.uwaterloo.ca ]]l then
+	screen -ls | grep irssi 1&2> /dev/null
+	if [[ $? -ne 0 ]] ; then
+		screen -dmS irssi -t irssi
+	fi
+	screen -Dr irssi
+else
+	ssh taurine.csclub.uwaterloo.ca -Ct irrsi
+fi
+
