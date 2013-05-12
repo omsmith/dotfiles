@@ -73,6 +73,10 @@ function command_not_found_handle {
     return 127
 }
 
+function print-path() {
+	echo $PATH | tr ":" "\n"
+}
+
 # some environment variables
 EDITOR=vim
 
@@ -80,5 +84,4 @@ EDITOR=vim
 alias dotgit="git --work-tree=$HOME --git-dir=$HOME/dev/dotfiles.git"
 #alias play="mplayer -cache 25000 -cache-min 99 -af volnorm=2 -vf pp=ac/fd"
 alias play="mplayer -cache 25000 -cache-min 99 -vf pp=ac/fd"
-alias print-path="echo $PATH | tr \":\" \"\n\""
 
