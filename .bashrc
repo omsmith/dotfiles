@@ -74,7 +74,6 @@ function command_not_found_handle {
 }
 
 # some environment variables
-export PATH=$HOMEDIR/bin:$HOMEDIR/node_modules/.bin:/var/lib/gems/1.8/bin:$PATH
 EDITOR=vim
 
 # aliases
