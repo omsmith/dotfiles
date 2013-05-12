@@ -25,7 +25,7 @@ PATH=$(echo $PATH | tr ':' '\n' | awk '!x[$0]++' | tr '\n' ':' | sed '$s/.$//')
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+        . "$HOME/.bashrc"
     fi
 fi
 
