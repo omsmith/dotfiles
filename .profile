@@ -8,7 +8,7 @@ fi
 
 add_to_path() {
     if [ -d "$1" ] ; then
-        export PATH="$1:$PATH"
+        PATH="$1:$PATH"
     fi
 }
 
