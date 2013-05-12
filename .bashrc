@@ -67,6 +67,11 @@ function command_not_found_handle {
         fi
     fi
 
+	if  [ -x /usr/lib/command-not-found ]; then
+		/usr/lib/command-not-found -- "$1"
+		return $?
+	fi
+
     return 127
 }
 
