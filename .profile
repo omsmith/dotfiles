@@ -1,11 +1,3 @@
-# if running bash
-if [ -n "$BASH_VERSION" ]; then
-    # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
-    fi
-fi
-
 add_to_path() {
     if [ -d "$1" ] ; then
         PATH="$1:$PATH"
@@ -25,4 +17,12 @@ add_to_path "$HOME/.cabal/bin"
 add_to_path "$HOME/bin"
 
 unset add_to_path
+
+# if running bash
+if [ -n "$BASH_VERSION" ]; then
+    # include .bashrc if it exists
+    if [ -f "$HOME/.bashrc" ]; then
+	. "$HOME/.bashrc"
+    fi
+fi
 
