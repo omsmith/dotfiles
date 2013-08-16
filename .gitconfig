@@ -3,3 +3,5 @@
 	email = owen@omsmith.ca
 [push]
 	default = matching
+[color]
+	ui = true
