@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-if command -v gnome-screensaver-command > /dev/null 2&>1; then
+if command -v slock > /dev/null 2&>1; then
+	slock
+elif command -v gnome-screensaver-command > /dev/null 2&>1; then
 	gnome-screensaver-command -l
 elif command -v xscreensaver-command > /dev/null 2&>1; then
 	xscreensaver-command -lock
