@@ -16,6 +16,7 @@
 --
 
 import XMonad
+import XMonad.Layout.NoBorders
 import Data.Monoid
 import System.Exit
 
@@ -323,7 +324,7 @@ defaults = defaultConfig {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = myLayout,
+        layoutHook         = smartBorders $ myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
