@@ -1,36 +1,47 @@
-#URxvt*termName: rxvt
-
 ## borderless and no scrollbar
 URxvt*scrollBar_right: false
 URxvt*scrollBar: false
 URxvt*borderLess: false
 
-## teh transparency stuff
-#URxvt*inheritPixmap: true
-#URxvt*tintColor: white
-#URxvt*shading: 60
-
 ## geometry and font
-#URxvt*geometry: 84×24
-#URxvt*font: xft:Source Code Pro for Powerline:pixelsize=12
 URxvt*font: xft:terminus:pixelsize=18
 
-## change default colors
-URxvt*background: #000000
-URxvt*foreground: #A8A8A8
-URxvt*color0: #000000
-URxvt*color1: #A80000
-URxvt*color2: #00A800
-URxvt*color3: #A85400
-URxvt*color4: #0000A8
-URxvt*color5: #A800A8
-URxvt*color6: #00A8A8
-URxvt*color7: #A8A8A8
-URxvt*color8: #545054
-URxvt*color9: #F85450
-URxvt*color10: #50FC50
-URxvt*color11: #F2FC50
-URxvt*color12: #5054F8
-URxvt*color13: #F854F8
-URxvt*color14: #50FCF8
-URxvt*color15: #F8FCF8
+# https://github.com/chriskempson/base16-xresources
+# Base16 Monokai
+# Scheme: Wimer Hazenberg (http://www.monokai.nl)
+
+URxvt.foreground:   #f8f8f2
+URxvt.background:   #272822
+URxvt.cursorColor:  #f8f8f2
+
+# Black
+URxvt.color0:       #272822
+URxvt.color8:       #75715e
+
+# Red
+URxvt.color1:       #f92672
+URxvt.color9:       #fd971f
+
+# Green
+URxvt.color2:       #a6e22e
+URxvt.color10:      #383830
+
+# Yellow
+URxvt.color3:       #f4bf75
+URxvt.color11:      #49483e
+
+# Blue
+URxvt.color4:       #66d9ef
+URxvt.color12:      #a59f85
+
+# Magenta
+URxvt.color5:       #ae81ff
+URxvt.color13:      #f5f4f1
+
+# Cyan
+URxvt.color6:       #a1efe4
+URxvt.color14:      #cc6633
+
+# White
+URxvt.color7:       #f8f8f2
+URxvt.color15:      #f9f8f5
