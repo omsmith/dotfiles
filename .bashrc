@@ -78,7 +78,7 @@ function print-path() {
 }
 
 # some environment variables
-EDITOR=vim
+export EDITOR=vim
 
 # aliases
 alias dotgit="git --work-tree=$HOME --git-dir=$HOME/dev/dotfiles.git"
