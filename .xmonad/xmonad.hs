@@ -16,7 +16,10 @@
 --
 
 import XMonad
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
 import XMonad.Layout.NoBorders
+import XMonad.Util.Run
 import Data.Monoid
 import System.Exit
 
@@ -214,7 +217,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 -- The available layouts.  Note that each layout is separated by |||,
 -- which denotes layout choice.
 --
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = avoidStruts $ smartBorders $ tiled ||| Mirror tiled ||| Full
   where
     -- default tiling algorithm partitions the screen into two panes
     tiled   = Tall nmaster delta ratio
@@ -243,7 +246,7 @@ myLayout = tiled ||| Mirror tiled ||| Full
 -- To match on the WM_NAME, you can use 'title' in the same way that
 -- 'className' and 'resource' are used below.
 --
-myManageHook = composeAll
+myManageHook = manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doShift "8:vid"
 	, className =? "mplayer2"		--> doShift "8:vid"
 	, className =? "vmware-view"	--> doShift "7"
@@ -264,7 +267,7 @@ myManageHook = composeAll
 -- It will add EWMH event handling to your custom event hooks by
 -- combining them with ewmhDesktopsEventHook.
 --
-myEventHook = mempty
+myEventHook = docksEventHook
 
 ------------------------------------------------------------------------
 -- Status bars and logging
@@ -301,14 +304,19 @@ myStartupHook = return ()
 
 -- Run xmonad with the settings you specify. No need to modify this.
 --
-main = xmonad defaults
+main = do
+    xmproc <- spawnPipe "killall xmobar || xmobar"
+    xmonad $ defaults {
+        logHook = dynamicLogWithPP $ xmobarPP {
+            ppOutput  = hPutStrLn xmproc,
+            ppTitle   = xmobarColor "#005577" "#222222",
+            ppCurrent = xmobarColor "#eeeeee" "#005577" . wrap "[" "]" . pad,
+            ppVisible = wrap "[" "]" . pad,
+            ppOrder   = \(ws:_:t:_) -> [ws,t],
+            ppSep     = "  "
+        }
+    }
 
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
 defaults = defaultConfig {
       -- simple stuff
         terminal           = myTerminal,
@@ -324,7 +332,7 @@ defaults = defaultConfig {
         mouseBindings      = myMouseBindings,
 
       -- hooks, layouts
-        layoutHook         = smartBorders $ myLayout,
+        layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook,
