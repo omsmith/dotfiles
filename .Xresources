@@ -1,0 +1,9 @@
+! colour scheme
+#include ".Xresources.d/base16-xresources/base16-monokai.dark.xresources"
+
+! urxvt
+#include ".Xresources.d/urxvt.xresources"
+
+! font
+*font: xft:terminus-11
+
