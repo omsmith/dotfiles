@@ -11,8 +11,9 @@ Config {
 		Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0"] 10,
 		Run Network "eth0" ["-t","Net: <rx>/<tx>","-H","200","-L","10","-h","#FFB6B0"] 10,
 		Run Date "%a %b %_d %H:%M" "date" 10,
-		Run StdinReader
+		Run StdinReader,
+		Run Battery ["-t", "Bat: <left>% (<timeleft>)"] 500
 	],
 	alignSep     = "}{",
-	template     = "%StdinReader% }%date%    %CYKF%{ %multicpu%   %memory%   %eth0%"
+	template     = "%StdinReader% }%date%    %CYKF%{ %multicpu%   %memory%   %eth0% %battery%"
 }
