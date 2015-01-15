@@ -4,6 +4,8 @@ add_to_path() {
     fi
 }
 
+add_to_path ~/.aws/eb/eb/linux/python2.7
+
 # ~/.gem/ruby/1.8/bin
 add_to_path "$HOME/.gem/ruby/1.8/bin"
 
