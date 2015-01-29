@@ -10,8 +10,14 @@ Plugin 'gmarik/vundle'
 
 Plugin 'chriskempson/base16-vim'
 
+Plugin 'after/vim-instant-markdown'
+
+Plugin 'editorconfig/editorconfig-vim'
+
 call vundle#end()
 filetype plugin indent on     " required!
+
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 
 set shiftwidth=4
 set tabstop=4

@@ -16,9 +16,15 @@ rm .dmenu_cache .cache/dmenu_run > /dev/null 2>&1 &
 source_if_exists "/etc/profile"
 source_if_exists "$HOME/.profile"
 
+if [ -f "$HOME/.Xresources" ]; then
+	xrdb "$HOME/.Xresources"
+fi
+
 # start urxvt daemon to save memory and speed console start
 urxvtd &
 
 clear_screen
 xmonad
 clear_screen
+
+kill $(jobs -p)
