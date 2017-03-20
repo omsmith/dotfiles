@@ -2,7 +2,8 @@
 function hg_status {
 	command -v hg >/dev/null 2>&1 && local result=`hg branch 2>/dev/null`
 	if [ -n "$result" ]; then
-		echo -n "$YELLOW |$BLUE hg $CYAN$result"
+		__omsmith_hg_branch_name="${result}"
+		VCS_STATUS="${VCS_STATUS}$YELLOW |$BLUE hg $CYAN\${__omsmith_hg_branch_name}"
 		return 0
 	fi
 
@@ -13,8 +14,9 @@ function hg_status {
 function git_status {
 	command -v git >/dev/null 2>&1 && local result=`git symbolic-ref HEAD 2>/dev/null`
 	if [ -n "$result" ]; then
-		result=`basename $result 2>/dev/null`
-		echo -n "$YELLOW |$BLUE git $CYAN$result"
+		result="${result#refs/heads/}"
+		__omsmith_git_branch_name="${result}"
+		VCS_STATUS="${VCS_STATUS}${YELLOW} |${BLUE} git ${CYAN}\${__omsmith_git_branch_name}"
 		return 0
 	fi
 
@@ -23,6 +25,7 @@ function git_status {
 
 # display vcs status
 function vcs_status {
+	VCS_STATUS=""
 	hg_status
 	git_status
 }
@@ -46,7 +49,10 @@ function prompt {
 	local WHITEBOLD="\[\033[1;37m\]"
 
 	PS1="$PURPLE\u $CYAN\H $YELLOW| $RED\d$WHITE at $RED\t"
-	PS1=$PS1$( vcs_status )
+
+	vcs_status
+	PS1=$PS1"${VCS_STATUS}"
+
 	PS1=$PS1"\n$YELLOW$( pwd ) ~"
 	PS1=$PS1" "
 	PS1=$PS1$WHITE
