@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
-if command -v i3lock > /dev/null 2&>1; then
+if command -v i3lock > /dev/null 2>&1; then
 	i3lock -uc 222222
-elif command -v slock > /dev/null 2&>1; then
+elif command -v slock > /dev/null 2>&1; then
 	slock
-elif command -v gnome-screensaver-command > /dev/null 2&>1; then
+elif command -v gnome-screensaver-command > /dev/null 2>&1; then
 	gnome-screensaver-command -l
-elif command -v xscreensaver-command > /dev/null 2&>1; then
+elif command -v xscreensaver-command > /dev/null 2>&1; then
 	xscreensaver-command -lock
-elif command -v zenity > /dev/null 2&>1; then
+elif command -v zenity > /dev/null 2>&1; then
 	zenity --error --text 'Could not lock!'
 else
 	xmessage Could not lock!
