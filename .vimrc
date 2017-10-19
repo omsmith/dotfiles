@@ -50,8 +50,9 @@ highlight link ALEErrorSign Title
 
 " Lightline
 set noshowmode " include here because lightline is replacing it
+source ~/.vim/lightline-base16-monokai.vim
 let g:lightline = {
-\ 'colorscheme': 'molokai',
+\ 'colorscheme': 'monokai',
 \ 'active': {
 \   'left': [['mode', 'paste'], ['filename', 'modified']],
 \   'right': [['lineinfo'], ['percent'], ['readonly', 'linter_warnings', 'linter_errors', 'linter_ok']]
@@ -85,6 +86,8 @@ function! LightlineLinterOK() abort
   let l:all_non_errors = l:counts.total - l:all_errors
   return l:counts.total == 0 ? '✓ ' : ''
 endfunction
+" Update and show lightline
+autocmd User ALELint call lightline#update()
 
 if !has('gui_running')
   set t_Co=256
