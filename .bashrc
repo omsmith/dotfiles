@@ -56,8 +56,6 @@ if [ -f ~/.bash_ps1 ]; then
 	. ~/.bash_ps1
 fi
 
-start-ssh-agent
-
 # l2man
 function command_not_found_handle {
     if [ `expr length $1` -gt "2" ]; then
@@ -88,3 +86,5 @@ alias startx="startx > /dev/null 2>&1 & vlock -c"
 
 # added by travis gem
 [ -f /home/omsmith/.travis/travis.sh ] && source /home/omsmith/.travis/travis.sh
+
+export GPG_TTY=$(tty)
