@@ -1,6 +1,7 @@
 [user]
 	name = Owen Smith
 	email = owen@omsmith.ca
+	signingkey = D434EE39
 [push]
 	default = matching
 [color]
@@ -9,3 +10,5 @@
 	editor = vim
 [diff]
 	compactionHeuristic = true
+[commit]
+	gpgsign = true
