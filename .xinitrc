@@ -20,11 +20,18 @@ if [ -f "$HOME/.Xresources" ]; then
 	xrdb "$HOME/.Xresources"
 fi
 
+# my screen is broken
+fixscreen
+
+# start redshift in the background
+redshift -t 6500K:3700K &
+
 # start urxvt daemon to save memory and speed console start
-urxvtd &
+urxvtd -q -f -o
 
 clear_screen
 xmonad
 clear_screen
 
-kill $(jobs -p)
+# kill background jobs
+jobs -p | xargs kill
