@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+OUT_FILE=${HOME}/$(date --utc --iso-8601=seconds).png
+TMP_FILE=$(mktemp).png
+
+maim -s "${TMP_FILE}"
+optipng -o7 -strip all "${TMP_FILE}"
+mv "${TMP_FILE}" "${OUT_FILE}"
