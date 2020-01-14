@@ -1,7 +1,7 @@
-if [[ `hostname -f` = taurine.csclub.uwaterloo.ca ]]; then
+if [[ `hostname -f` = neotame.csclub.uwaterloo.ca ]]; then
 	screen -ls | grep irssi > /dev/null 2>&1 || screen -UdmS irssi irssi
 	screen -Dr irssi
 else
-	ssh omsmith@taurine.csclub.uwaterloo.ca -Ct bin/irc
+	ssh omsmith@neotame.csclub.uwaterloo.ca -Ct bin/irc
 fi
 
