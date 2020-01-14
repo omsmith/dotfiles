@@ -12,3 +12,9 @@
 	compactionHeuristic = true
 [commit]
 	gpgsign = true
+[trailer "pr"]
+	key = "PR-URL: "
+	ifmissing = add
+	ifexists = doNothing
+[alias]
+	pr = "!f() { GIT_EDITOR=\"git interpret-trailers --trailer pr=\\\"${1}\\\" --in-place\" git commit --amend; }; f"
