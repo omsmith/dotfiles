@@ -4,15 +4,6 @@ add_to_path() {
     fi
 }
 
-# ~/.gem/ruby/1.8/bin
-add_to_path "$HOME/.gem/ruby/1.8/bin"
-
-# ~/node_modules/.bin
-add_to_path "$HOME/node_modules/.bin"
-
-# ~/.cabal/bin
-add_to_path "$HOME/.cabal/bin"
-
 # ~/bin
 add_to_path "$HOME/bin"
 
