@@ -97,8 +97,7 @@ install_packages() {
 }
 
 setup_node() {
-	nave install lts lts
-	ln -sr .nave/installed/lts/bin/* bin
+	su -c "nave install lts lts; ln -sr .nave/installed/lts/bin/* bin" ${SUDO_USER}
 }
 
 main() {
