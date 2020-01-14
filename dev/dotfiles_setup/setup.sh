@@ -27,6 +27,7 @@ code
 dnsutils
 docker-ce
 dos2unix
+fwupd
 git
 gnupg
 golang-go
