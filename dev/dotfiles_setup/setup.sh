@@ -96,10 +96,16 @@ install_packages() {
 	xargs apt install --yes < <(echo "${PACKAGES}")
 }
 
+setup_node() {
+	nave install lts lts
+	ln -sr .nave/installed/lts/bin/* bin
+}
+
 main() {
 	init
 	add_ppas
 	install_packages
+	setup_node
 }
 
 main
