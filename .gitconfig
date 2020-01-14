@@ -18,3 +18,5 @@
 	ifexists = doNothing
 [alias]
 	pr = "!f() { GIT_EDITOR=\"git interpret-trailers --trailer pr=\\\"${1}\\\" --in-place\" git commit --amend; }; f"
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
