@@ -7,3 +7,6 @@
 [submodule ".base16-codemirror"]
 	path = .base16-codemirror
 	url = https://github.com/idleberg/base16-codemirror.git
+[submodule "dev/nave"]
+	path = dev/nave
+	url = https://github.com/isaacs/nave
