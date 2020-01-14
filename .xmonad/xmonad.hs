@@ -249,10 +249,10 @@ myLayout = avoidStruts $ smartBorders $ tiled ||| Mirror tiled ||| Full
 --
 myManageHook = manageDocks <+> composeAll
     [ className =? "MPlayer"        --> doShift "8:vid"
-	, className =? "mplayer2"		--> doShift "8:vid"
-	, className =? "mpv"            --> doShift "8:vid" <+> doFloat
-	, className =? "vmware-view"	--> doShift "7"
-	, className =? "KSP.x86"		--> doFloat
+    , className =? "mplayer2"       --> doShift "8:vid"
+    , className =? "mpv"            --> doShift "8:vid" <+> doFloat
+    , className =? "vmware-view"    --> doShift "7"
+    , className =? "KSP.x86"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
     , resource  =? "kdesktop"       --> doIgnore ]
@@ -319,7 +319,7 @@ main = do
         }
     }
 
-defaults = defaultConfig {
+defaults = def {
       -- simple stuff
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
