@@ -27,6 +27,14 @@ import System.Exit
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
 
+-- Additional keysyms
+xK_XF86AudioMute         = 0x1008ff12
+xK_XF86AudioLowerVolume  = 0x1008ff11
+xK_XF86AudioRaiseVolume  = 0x1008ff13
+xK_XF86AudioMicMute      = 0x1008ffb2
+xK_XF86MonBrightnessUp   = 0x1008ff02
+xK_XF86MonBrightnessDown = 0x1008ff03
+
 -- The preferred terminal program, which is used in a binding below and by
 -- certain contrib modules.
 --
@@ -180,6 +188,16 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [((m .|. modm, key), screenWorkspace sc >>= flip whenJust (windows . f))
         | (key, sc) <- zip [xK_w, xK_e, xK_r] [0..]
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
+    ++
+
+    --
+    -- media keys
+    --
+    [ ((0, xK_XF86AudioMute       ), spawn "pactl set-sink-mute 0 toggle"  )
+    , ((0, xK_XF86AudioLowerVolume), spawn "pactl set-sink-volume 0 -1.5%" )
+    , ((0, xK_XF86AudioRaiseVolume), spawn "pactl set-sink-volume 0 +1.5%" )
+    , ((0, xK_XF86AudioMicMute    ), spawn "pactl set-source-mute 0 toggle")
+    ]
 
 
 ------------------------------------------------------------------------
