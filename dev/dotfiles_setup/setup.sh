@@ -16,14 +16,12 @@ ppa:peek-developers/stable
 deb [arch=amd64] https://dl-ssl.google.com/linux/chrome/deb/ stable main
 deb http://prerelease.keybase.io/deb stable main
 deb [arch=amd64] https://download.docker.com/linux/ubuntu disco stable
-deb [arch=amd64] https://packages.microsoft.com/ubuntu/19.04/prod eoan main
 deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8
 "
 
 PACKAGES="
 bazel
 build-essential
-code
 dnsutils
 docker-ce
 dos2unix
@@ -43,15 +41,16 @@ peek
 pulseaudio
 rxvt-unicode-256color
 slop
-steam
 suckless-tools
 vlock
 wget
+x11-xserver-utils
 xfonts-terminus
 xinit
 xmonad
-xmonad-contrib
+libghc-xmonad-contrib-dev
 xmobar
+xorg-xrdb
 "
 
 init() {
@@ -64,7 +63,7 @@ init() {
 add_apt_key() {
 	local endpoint="${1}"; shift
 
-	"curl -fsSL "${endpoint}" | apt-key add -"
+	curl -fsSL "${endpoint}" | apt-key add -
 }
 
 add_ppa() {
@@ -98,7 +97,7 @@ install_packages() {
 }
 
 setup_node() {
-	su -c "nave install lts lts; ln -sr .nave/installed/lts/bin/* bin" ${SUDO_USER}
+	su -c "bin/nave install lts lts; ln -sr .nave/installed/lts/bin/* bin" ${SUDO_USER}
 }
 
 main() {
